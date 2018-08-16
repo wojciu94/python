@@ -103,3 +103,29 @@ def test_getPageContent_correctKeyAndWrongPage_raiseIndexError_ut():
         book.add_title_and_content_of_chapter("Chapter1", ["Text TExt TExt", "ACS"])
         book.get_page_content('Chapter1', 3)
 
+
+def test_addYearOfProduction_NoYear_returnZero_ut():
+
+    book = BookWithAutor("Tytuł Książki", "Adam Mickiewicz")
+    assert book.year_of_production == 0
+
+
+def test_addYearOfProduction_CorrectYear_returnCorrectYear_ut():
+
+    book = BookWithAutor("Tytuł Książki", "Adam Mickiewicz")
+    book.add_year_of_production(2018)
+    assert book.year_of_production == 2018
+
+
+def test_addYearOfPrduction_negativeValue_returnZero_ut():
+
+    book = BookWithAutor("Tytuł Książki", "Adam Mickiewicz")
+    book.add_year_of_production(-12)
+    assert book.year_of_production == 0
+
+
+def test_addYearOfPrduction_floatValue_returnZero_ut():
+
+    book = BookWithAutor("Tytuł Książki", "Adam Mickiewicz")
+    book.add_year_of_production(5.5)
+    assert book.year_of_production == 0

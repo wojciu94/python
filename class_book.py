@@ -1,4 +1,6 @@
 import logging
+import math
+
 
 class Book:
 
@@ -37,12 +39,17 @@ book.get_page_content("asd", 1)
 class BookWithAutor(Book):
 
     def __init__(self, title: str, writer: str):
+
         Book.__init__(self, title)
         self.writer = writer
+        self.year_of_production = 0
 
-    def show_writer_of_book(self):
+    def add_year_of_production(self, year: int):
 
-        logging.critical(self.writer)
+        if year > 0 and math.floor(year) == year:
+            self.year_of_production = year
+
+
 
 
 """
